@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="RepoListItemBinding" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_15dp"
+        android:background="@color/white"
+        android:elevation="@dimen/card_view_elevation"
+        android:padding="@dimen/padding_10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/card_view_corner_radius"
+        app:cardElevation="@dimen/card_view_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_15dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/itemProfileImg"
+                android:layout_width="@dimen/item_feed_profile_size"
+                android:layout_height="@dimen/item_feed_profile_size"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_account_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemRepoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/padding_10dp"
+                android:paddingRight="@dimen/padding_10dp"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/font_16sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/itemProfileImg"
+                app:layout_constraintTop_toTopOf="@id/itemProfileImg"
+                tools:text="fetch-github-repositories-android" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemAuthorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:paddingLeft="@dimen/padding_10dp"
+                android:paddingTop="@dimen/padding_3dp"
+                android:paddingRight="@dimen/padding_10dp"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/font_12sp"
+                app:layout_constraintLeft_toRightOf="@id/itemProfileImg"
+                app:layout_constraintTop_toBottomOf="@id/itemRepoName"
+                tools:text="Francielly Moraes" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:layout_marginRight="@dimen/margin_15dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="2"
+                android:textColor="@color/text_color_3"
+                android:textSize="@dimen/font_14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemProfileImg"
+                tools:text="Fetch Github repositories filtered by Kotlin" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/statisticsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemDescription">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/itemStarImg"
+                    android:layout_width="@dimen/item_feed_statics_icon_size"
+                    android:layout_height="@dimen/item_feed_statics_icon_size"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:src="@drawable/ic_start"
+                    android:tint="@color/yellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/itemStarLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_4"
+                    android:textSize="@dimen/font_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/itemStarImg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="12345" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/itemCodeForkImg"
+                    android:layout_width="@dimen/item_feed_statics_icon_size"
+                    android:layout_height="@dimen/item_feed_statics_icon_size"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:src="@drawable/ic_code_fork"
+                    android:tint="@color/purple_200"
+                    app:layout_constraintLeft_toRightOf="@+id/itemStarLabel"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/itemCodeForkLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_4"
+                    android:textSize="@dimen/font_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/itemCodeForkImg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="12345" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
