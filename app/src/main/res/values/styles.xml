@@ -25,4 +25,29 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="ToolbarTitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_18sp</item>
+        <item name="android:maxEms">15</item>
+    </style>
+
+    <style name="FilterItemStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/purple_500</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/font_12sp</item>
+        <item name="android:background">@drawable/filter_item_selected</item>
+        <item name="android:paddingStart">@dimen/padding_28dp</item>
+        <item name="android:paddingLeft">@dimen/padding_28dp</item>
+        <item name="android:paddingTop">@dimen/padding_10dp</item>
+        <item name="android:paddingEnd">@dimen/padding_28dp</item>
+        <item name="android:paddingRight">@dimen/padding_28dp</item>
+        <item name="android:paddingBottom">@dimen/padding_10dp</item>
+    </style>
+
+
 </resources>
