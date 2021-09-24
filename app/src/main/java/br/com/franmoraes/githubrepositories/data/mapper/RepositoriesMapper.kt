@@ -1,0 +1,20 @@
+package br.com.franmoraes.githubrepositories.data.mapper
+
+import br.com.franmoraes.githubrepositories.data.remote.entity.GithubRepositories
+import br.com.franmoraes.githubrepositories.data.remote.entity.Repositories
+import br.com.franmoraes.githubrepositories.data.remote.model.RepositoriesResponse
+
+class RepositoriesMapper(
+    private val ownerMapper: RepositoryOwnerMapper
+) : BaseMapper<RepositoriesResponse, Repositories>() {
+
+    override fun transform(inputObject: RepositoriesResponse): Repositories =
+        Repositories(
+            repositoryId = inputObject.repositoryId,
+            fullName = inputObject.fullName,
+            owner = ownerMapper.transform(inputObject = inputObject.owner),
+            forks = inputObject.forks?.let { it } ?: 0,
+            watchers = inputObject.watchers?.let { it } ?: 0,
+            description = inputObject.description.orEmpty()
+        )
+}

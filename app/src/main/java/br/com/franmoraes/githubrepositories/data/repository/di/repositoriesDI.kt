@@ -1,15 +1,10 @@
-package br.com.franmoraes.githubrepositories.data.remote.di
+package br.com.franmoraes.githubrepositories.data.repository.di
 
-import br.com.franmoraes.githubrepositories.data.mapper.GithubRepositoriesMapper
 import br.com.franmoraes.githubrepositories.data.mapper.RepositoriesMapper
 import br.com.franmoraes.githubrepositories.data.mapper.RepositoryOwnerMapper
 import org.koin.core.module.Module
 
-fun Module.mappersApi() {
-
-    single {
-        GithubRepositoriesMapper(repositoriesMapper = get())
-    }
+fun Module.repositoriesApi() {
 
     single {
         RepositoryOwnerMapper()
