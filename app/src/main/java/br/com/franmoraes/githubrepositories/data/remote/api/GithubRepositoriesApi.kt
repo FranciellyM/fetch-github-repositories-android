@@ -8,8 +8,8 @@ interface GithubRepositoriesApi {
 
     @GET("search/repositories")
     suspend fun fetchRepositories(
-        @Query("language") language: String = "kotlin",
-        @Query("sort") sort: String = "starts",
-        @Query("page") page: Int
+        @Query("q") language: String,
+        @Query("sort") sort: String,
+        @Query("page") page: Long
     ): GithubRepositoriesResponse
 }

@@ -13,8 +13,8 @@ class RepositoriesMapper(
             repositoryId = inputObject.repositoryId,
             fullName = inputObject.fullName,
             owner = ownerMapper.transform(inputObject = inputObject.owner),
-            forks = inputObject.forks?.let { it } ?: 0,
-            watchers = inputObject.watchers?.let { it } ?: 0,
+            forks = inputObject.forks ?: 0,
+            watchers = inputObject.watchers ?: 0,
             description = inputObject.description.orEmpty()
         )
 }

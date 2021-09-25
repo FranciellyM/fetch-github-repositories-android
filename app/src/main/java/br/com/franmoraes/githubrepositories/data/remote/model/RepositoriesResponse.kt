@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class RepositoriesResponse(
     @SerializedName("id") val repositoryId: Int,
-    @SerializedName("full_name") val fullName: String,
+    @SerializedName("name") val fullName: String,
     @SerializedName("owner") val owner: RepositoryOwnerResponse,
     @SerializedName("forks_count") val forks: Int?,
     @SerializedName("stargazers_count") val watchers: Int?,

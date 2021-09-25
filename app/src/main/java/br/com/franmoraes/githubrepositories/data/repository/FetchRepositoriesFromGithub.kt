@@ -9,8 +9,14 @@ class FetchRepositoriesFromGithub(
     private val mapper: GithubRepositoriesMapper
 ) : IFetchRepositoriesFromGithub {
 
-    override suspend fun fetchRepositories(pageNumber: Int): List<Repositories> {
-        val githubRepositories = api.fetchRepositories(page = pageNumber)
+    override suspend fun fetchRepositories(
+        pageNumber: Long,
+        language: String,
+        sort: String
+    ): List<Repositories> {
+        val githubRepositories = api.fetchRepositories(
+            page = pageNumber, language = "language:$language", sort = sort
+        )
         return mapper.transform(githubRepositories).repositories
     }
 }
