@@ -8,7 +8,7 @@ interface GithubRepositoriesApi {
 
     @GET("search/repositories")
     suspend fun fetchRepositories(
-        @Query("q") language: String,
+        @Query("q") query: String,
         @Query("sort") sort: String,
         @Query("page") page: Long
     ): GithubRepositoriesResponse

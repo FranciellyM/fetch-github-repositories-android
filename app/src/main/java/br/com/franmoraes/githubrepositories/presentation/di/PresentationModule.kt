@@ -1,6 +1,6 @@
 package br.com.franmoraes.githubrepositories.presentation.di
 
-import br.com.franmoraes.githubrepositories.presentation.ui.repolist.GithubRopeListViewModel
+import br.com.franmoraes.githubrepositories.presentation.ui.repolist.GithubReposListViewModel
 import br.com.franmoraes.githubrepositories.presentation.vo.mapper.GithubRepositoriesVOMapper
 import br.com.franmoraes.githubrepositories.presentation.vo.mapper.RepositoryOwnerVOMapper
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -10,7 +10,7 @@ internal object PresentationModule {
     val module = module {
 
         viewModel {
-            GithubRopeListViewModel(
+            GithubReposListViewModel(
                 fetchRepositoriesFromGithub = get(),
                 voMapper = get()
             )

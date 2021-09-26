@@ -1,4 +1,4 @@
-package br.com.franmoraes.githubrepositories.data.base
+package br.com.franmoraes.githubrepositories.base
 
 import android.app.Application
 import br.com.franmoraes.githubrepositories.data.remote.api.GithubRepositoriesApi

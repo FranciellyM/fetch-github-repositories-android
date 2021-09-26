@@ -16,9 +16,9 @@ import br.com.franmoraes.githubrepositories.presentation.ui.repolist.helper.Load
 import br.com.franmoraes.githubrepositories.presentation.vo.GithubRepositoriesVO
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class GithubRopesListActivity : AppCompatActivity() {
+class GithubReposListActivity : AppCompatActivity() {
 
-    private val viewModel: GithubRopeListViewModel by viewModel()
+    private val viewModel: GithubReposListViewModel by viewModel()
     private lateinit var repoListBinding: GithubListActivityBinding
     private lateinit var reposAdapter: ReposAdapter
 
@@ -28,7 +28,7 @@ class GithubRopesListActivity : AppCompatActivity() {
         repoListBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_github_repo_list
         )
-        repoListBinding.lifecycleOwner = this@GithubRopesListActivity
+        repoListBinding.lifecycleOwner = this@GithubReposListActivity
 
         prepareObservers()
         initViews()
@@ -77,7 +77,7 @@ class GithubRopesListActivity : AppCompatActivity() {
         } else {
             reposAdapter = ReposAdapter(reposList)
             var listLayoutManager =
-                LinearLayoutManager(this@GithubRopesListActivity, RecyclerView.VERTICAL, false)
+                LinearLayoutManager(this@GithubReposListActivity, RecyclerView.VERTICAL, false)
             repoListBinding.repoList.apply {
                 adapter = reposAdapter
                 layoutManager = listLayoutManager
