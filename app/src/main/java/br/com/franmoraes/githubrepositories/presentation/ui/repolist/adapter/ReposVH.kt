@@ -15,7 +15,7 @@ class ReposVH(
             .placeholder(R.drawable.ic_account_circle)
             .into(binding.itemProfileImg)
 
-        binding.itemRepoName.text = githubRepoVO.fullName
+        binding.itemRepoName.text = githubRepoVO.name
         binding.itemAuthorName.text = githubRepoVO.owner.name
         binding.itemDescription.text = githubRepoVO.description
         binding.itemStarLabel.text = githubRepoVO.watchers.toString()

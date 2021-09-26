@@ -11,6 +11,7 @@ class GithubRepositoriesVOMapper(
     override fun transform(inputObject: Repositories): GithubRepositoriesVO =
         GithubRepositoriesVO(
             fullName = inputObject.fullName,
+            name = inputObject.name,
             owner = ownerMapper.transform(inputObject = inputObject.owner),
             forks = inputObject.forks?.let { it } ?: 0,
             watchers = inputObject.watchers?.let { it } ?: 0,
