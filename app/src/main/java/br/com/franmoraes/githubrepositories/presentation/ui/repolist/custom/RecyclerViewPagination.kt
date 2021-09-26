@@ -42,6 +42,17 @@ abstract class RecyclerViewPagination(
         }
     }
 
+    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        if(dy > 0){
+            actionShowFAB()
+        } else{
+            actionHideFAB()
+        }
+        super.onScrolled(recyclerView, dx, dy)
+    }
+
     abstract fun fetchMore()
     abstract fun isLastPage(): Boolean
+    abstract fun actionHideFAB()
+    abstract fun actionShowFAB()
 }

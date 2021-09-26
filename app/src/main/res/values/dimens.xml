@@ -63,4 +63,6 @@
     <dimen name="filter_item_width">100dp</dimen>
     <dimen name="overlay_repo_list">64dp</dimen>
 
+    <dimen name="fab_margin">16dp</dimen>
+
 </resources>
