@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_radio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:background="@drawable/filter_item_selected"
+        android:button="@null"
+        android:gravity="center"
+        android:paddingStart="@dimen/padding_28dp"
+        android:paddingLeft="@dimen/padding_28dp"
+        android:paddingTop="@dimen/padding_10dp"
+        android:paddingEnd="@dimen/padding_28dp"
+        android:paddingRight="@dimen/padding_28dp"
+        android:paddingBottom="@dimen/padding_10dp"
+        android:text="@string/filtered_language"
+        android:textAllCaps="true"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/font_12sp" />
+
+</layout>
