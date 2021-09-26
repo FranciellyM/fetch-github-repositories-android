@@ -55,15 +55,15 @@
                             style="@style/FilterItemStyle"
                             android:layout_width="@dimen/filter_item_width"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_20dp"
                             android:layout_marginStart="@dimen/margin_16dp"
-                            android:text="@string/filtered_language"/>
+                            android:layout_marginTop="@dimen/margin_20dp"
+                            android:text="@string/filtered_language" />
                     </RelativeLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:behavior_overlapTop="@dimen/overlay_repo_list"
@@ -82,6 +82,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layoutAnimation="@anim/layout_anim_from_bottom" />
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/backToTopFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:visibility="gone"
+            app:backgroundTint="@color/purple_200"
+            app:srcCompat="@drawable/ic_up"
+            app:tint="@android:color/white"
+            tools:visibility="visible" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -69,6 +69,9 @@ class GithubReposListActivity : AppCompatActivity() {
 
     private fun initViews() {
         setSupportActionBar(findViewById(R.id.appToolbar))
+        repoListBinding.backToTopFAB.setOnClickListener {
+            repoListBinding.repoList.smoothScrollToPosition(0)
+        }
     }
 
     private fun initReposRecyclerView(reposList: List<GithubRepositoriesVO>) {
@@ -88,6 +91,14 @@ class GithubReposListActivity : AppCompatActivity() {
                     }
 
                     override fun isLastPage(): Boolean = viewModel.isLastPage()
+
+                    override fun actionHideFAB() {
+                        repoListBinding.backToTopFAB.hide()
+                    }
+
+                    override fun actionShowFAB() {
+                       repoListBinding.backToTopFAB.show()
+                    }
                 })
             }
         }
