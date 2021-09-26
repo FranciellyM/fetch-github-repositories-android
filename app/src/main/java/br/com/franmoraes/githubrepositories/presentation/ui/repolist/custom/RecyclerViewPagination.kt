@@ -19,9 +19,6 @@ abstract class RecyclerViewPagination(
 
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         super.onScrollStateChanged(recyclerView, newState)
-
-        if (newState != SCROLL_STATE_IDLE) return
-
         if (isLastPage()) return
 
         var lastVisibleItemPosition = 0
