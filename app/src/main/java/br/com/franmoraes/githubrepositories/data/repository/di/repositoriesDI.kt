@@ -2,14 +2,16 @@ package br.com.franmoraes.githubrepositories.data.repository.di
 
 import br.com.franmoraes.githubrepositories.data.repository.FetchRepositoriesFromGithub
 import br.com.franmoraes.githubrepositories.data.repository.IFetchRepositoriesFromGithub
-import org.koin.core.module.Module
+import org.koin.dsl.module
 
-fun Module.repositories() {
+internal object RepositoriesModule {
+    val module = module {
 
-    single<IFetchRepositoriesFromGithub> {
-        FetchRepositoriesFromGithub(
-            api = get(),
-            mapper = get()
-        )
+        single<IFetchRepositoriesFromGithub> {
+            FetchRepositoriesFromGithub(
+                api = get(),
+                mapper = get()
+            )
+        }
     }
 }
