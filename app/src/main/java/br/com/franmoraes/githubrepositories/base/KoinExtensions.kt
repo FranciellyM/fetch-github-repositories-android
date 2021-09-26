@@ -2,7 +2,9 @@ package br.com.franmoraes.githubrepositories.base
 
 import android.app.Application
 import android.content.Context
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
+import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -27,4 +29,12 @@ fun KoinApplication.androidContext(androidContext: Context): KoinApplication {
     }
 
     return this
+}
+
+fun Application.startKoinWithModulePackages(vararg packages: ModulePackage) {
+
+    startKoin {
+        androidContext(this@startKoinWithModulePackages)
+        modules(packages.map { it.getModules() }.reduce { acc, list -> acc + list })
+    }
 }

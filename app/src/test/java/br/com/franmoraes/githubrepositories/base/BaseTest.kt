@@ -1,10 +1,9 @@
-package br.com.franmoraes.githubrepositories.data.base
+package br.com.franmoraes.githubrepositories.base
 
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
 import org.koin.test.AutoCloseKoinTest
-import org.koin.test.KoinTest
 
 abstract class BaseTest : AutoCloseKoinTest() {
     protected lateinit var mockServer: MockWebServer

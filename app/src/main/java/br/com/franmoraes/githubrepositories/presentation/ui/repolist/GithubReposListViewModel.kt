@@ -8,12 +8,11 @@ import br.com.franmoraes.githubrepositories.data.repository.IFetchRepositoriesFr
 import br.com.franmoraes.githubrepositories.presentation.ui.repolist.helper.LoadingState
 import br.com.franmoraes.githubrepositories.presentation.vo.GithubRepositoriesVO
 import br.com.franmoraes.githubrepositories.presentation.vo.mapper.GithubRepositoriesVOMapper
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.lang.Exception
 
-class GithubRopeListViewModel(
+class GithubReposListViewModel(
     private val fetchRepositoriesFromGithub: IFetchRepositoriesFromGithub,
     private val voMapper: GithubRepositoriesVOMapper
 ) : ViewModel() {
@@ -40,27 +39,25 @@ class GithubRopeListViewModel(
                 val githubReposVO = githubRepos.map { repo -> voMapper.transform(repo) }
 
                 reposList.addAll(githubReposVO)
-
                 githubRepositoriesVO.postValue(reposList)
 
                 loading.postValue(LoadingState.FINISHED)
-            } catch (error: Exception) {
-                when (error) {
-                    is HttpException -> {
-                        if(error.code() == 422) {
-                            isLastPage = true
-                            githubRepositoriesVO.postValue(emptyList())
-                        } else {
-                            loading.postValue(LoadingState.error(LoadingState.Error.GENERIC_ERROR))
-                        }
-                    }
-                    else -> {
-                        loading.postValue(LoadingState.error(LoadingState.Error.GENERIC_ERROR))
-                    }
+            } catch (error: HttpException) {
+                if(error.code() == END_OF_CONTENT) {
+                    isLastPage = true
+                    githubRepositoriesVO.postValue(emptyList())
+                } else {
+                    loading.postValue(LoadingState.error(LoadingState.Error.GENERIC_ERROR))
                 }
+            } catch (error: Exception) {
+                loading.postValue(LoadingState.error(LoadingState.Error.GENERIC_ERROR))
             }
         }
     }
 
     fun isLastPage(): Boolean = isLastPage
+
+    companion object {
+        private const val END_OF_CONTENT = 422
+    }
 }

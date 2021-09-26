@@ -1,6 +1,6 @@
 package br.com.franmoraes.githubrepositories.data.repository
 
-import br.com.franmoraes.githubrepositories.data.base.BaseTest
+import br.com.franmoraes.githubrepositories.base.BaseTest
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import org.junit.Assert.assertEquals

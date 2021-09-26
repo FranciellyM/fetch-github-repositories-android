@@ -13,8 +13,8 @@ class GithubRepositoriesVOMapper(
             fullName = inputObject.fullName,
             name = inputObject.name,
             owner = ownerMapper.transform(inputObject = inputObject.owner),
-            forks = inputObject.forks?.let { it } ?: 0,
-            watchers = inputObject.watchers?.let { it } ?: 0,
-            description = inputObject.description.orEmpty()
+            forks = inputObject.forks,
+            watchers = inputObject.watchers,
+            description = inputObject.description
         )
 }

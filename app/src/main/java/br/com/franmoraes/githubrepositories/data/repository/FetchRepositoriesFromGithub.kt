@@ -15,7 +15,7 @@ class FetchRepositoriesFromGithub(
         sort: String
     ): List<Repositories> {
         val githubRepositories = api.fetchRepositories(
-            page = pageNumber, language = "language:$language", sort = sort
+            page = pageNumber, query = "language:$language", sort = sort
         )
         return mapper.transform(githubRepositories).repositories
     }
