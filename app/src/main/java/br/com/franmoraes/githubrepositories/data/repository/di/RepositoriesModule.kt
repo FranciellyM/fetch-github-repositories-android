@@ -6,7 +6,6 @@ import org.koin.dsl.module
 
 internal object RepositoriesModule {
     val module = module {
-
         single<IFetchRepositoriesFromGithub> {
             FetchRepositoriesFromGithub(
                 api = get(),

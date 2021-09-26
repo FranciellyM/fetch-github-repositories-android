@@ -4,7 +4,6 @@ import br.com.franmoraes.githubrepositories.data.remote.api.BuildInfoHelper
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit

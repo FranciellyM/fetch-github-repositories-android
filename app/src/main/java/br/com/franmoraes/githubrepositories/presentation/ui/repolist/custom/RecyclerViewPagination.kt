@@ -20,26 +20,28 @@ abstract class RecyclerViewPagination(
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         super.onScrollStateChanged(recyclerView, newState)
 
-        if (newState == SCROLL_STATE_IDLE && !isLastPage()) {
-            var lastVisibleItemPosition = 0
-            val visibleItemCount = layoutManager.childCount
-            val totalItemCount = layoutManager.itemCount
+        if (newState != SCROLL_STATE_IDLE) return
 
-            if (layoutManager is LinearLayoutManager) {
-                lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
-            } else if (layoutManager is GridLayoutManager) {
-                lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
-            }
+        if (isLastPage()) return
 
-            val itemCount = visibleItemCount + lastVisibleItemPosition + visibleItems
-            if (itemCount >= totalItemCount) {
-                if (!endWithAuto) {
-                    endWithAuto = true
-                    fetchMore()
-                }
-            } else {
-                endWithAuto = false
+        var lastVisibleItemPosition = 0
+        val visibleItemCount = layoutManager.childCount
+        val totalItemCount = layoutManager.itemCount
+
+        if (layoutManager is LinearLayoutManager) {
+            lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+        } else if (layoutManager is GridLayoutManager) {
+            lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+        }
+
+        val itemCount = visibleItemCount + lastVisibleItemPosition + visibleItems
+        if (itemCount >= totalItemCount) {
+            if (!endWithAuto) {
+                endWithAuto = true
+                fetchMore()
             }
+        } else {
+            endWithAuto = false
         }
     }
 
