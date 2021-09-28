@@ -87,7 +87,7 @@ class GithubReposListViewModelTest {
     }
 
     @Test
-    fun `given api response with end content status code`() {
+    fun `given api response with end content status code then returns empty list`() {
         verifyResponseWithException(HttpException(
             Response.error<ResponseBody>(
                 422,
@@ -101,7 +101,7 @@ class GithubReposListViewModelTest {
     }
 
     @Test
-    fun `given api response with and HttpException`() {
+    fun `given api response with any HttpException`() {
         verifyResponseWithException(
             HttpException(
                 Response.error<ResponseBody>(
