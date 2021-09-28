@@ -49,16 +49,4 @@ class FetchRepositoriesFromGithubTest : BaseTest() {
             fetchRepositoriesFromGithub.fetchRepositories(-1)
         }
     }
-
-    private fun mockHttpResponse(fileName: String, responseCode: Int) = mockServer.enqueue(
-        MockResponse()
-            .setResponseCode(responseCode)
-            .setBody(jsonFileToString(fileName))
-    )
-
-    private fun jsonFileToString(path: String): String {
-        val uri = javaClass.classLoader.getResource(path)
-        val file = File(uri.path)
-        return String(file.readBytes())
-    }
 }

@@ -32,6 +32,7 @@ class GithubReposListActivity : AppCompatActivity() {
 
         prepareObservers()
         initViews()
+        viewModel.fetchRepositories()
     }
 
     private fun prepareObservers() {
