@@ -27,7 +27,7 @@ class GithubReposListViewModel(
     private var reposList = mutableListOf<GithubRepositoriesVO>()
 
     init {
-        fetchRepositories()
+//        fetchRepositories()
     }
 
     fun fetchRepositories() {
@@ -46,6 +46,7 @@ class GithubReposListViewModel(
                 if(error.code() == END_OF_CONTENT) {
                     isLastPage = true
                     githubRepositoriesVO.postValue(emptyList())
+                    loading.postValue(LoadingState.FINISHED)
                 } else {
                     loading.postValue(LoadingState.error(LoadingState.Error.GENERIC_ERROR))
                 }
