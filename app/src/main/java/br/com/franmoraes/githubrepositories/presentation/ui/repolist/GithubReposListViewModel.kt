@@ -26,10 +26,6 @@ class GithubReposListViewModel(
     private var isLastPage: Boolean = false
     private var reposList = mutableListOf<GithubRepositoriesVO>()
 
-    init {
-//        fetchRepositories()
-    }
-
     fun fetchRepositories() {
         viewModelScope.launch {
             try {
