@@ -4,7 +4,6 @@ import android.app.Application
 import br.com.franmoraes.githubrepositories.data.remote.api.GithubRepositoriesApi
 import br.com.franmoraes.githubrepositories.data.remote.di.MappersModule
 import br.com.franmoraes.githubrepositories.data.repository.di.RepositoriesModule
-import br.com.franmoraes.githubrepositories.presentation.di.PresentationModule
 import com.nhaarman.mockitokotlin2.mock
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,8 +22,7 @@ object TestSetup {
             modules(
                 configureNetworkModuleForTest(baseUrl),
                 RepositoriesModule.module,
-                MappersModule.module,
-                PresentationModule.getModules().first()
+                MappersModule.module
             )
         }
     }
